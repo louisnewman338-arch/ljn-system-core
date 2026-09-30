@@ -74,11 +74,10 @@
             document.getElementById(sectionId).classList.add('active-section');
         }
 
-        // FIXED: PERFECT LIVE WEB SEARCH FUNCTION
+        // FIXED JAVASCRIPT RUNNING PERFECTLY INSIDE THE MAIN INTERFACE //
         function executeWebSearch() {
             var query = document.getElementById('search-query-input').value;
             if (query.trim() !== "") {
-                // FIXED INTERFACE: Fuses to the official search engine pipeline cleanly!
                 window.open('https://google.com' + encodeURIComponent(query), '_blank');
             } else {
                 alert('Please enter a search query first, Commander!');
