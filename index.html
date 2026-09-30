@@ -67,19 +67,27 @@
     </style>
     <script>
         function showSection(sectionId) {
-            // Hide all screen sections
             var sections = document.getElementsByClassName('page-section');
             for (var i = 0; i < sections.length; i++) {
                 sections[i].classList.remove('active-section');
             }
-            // Show the specific clicked section node
             document.getElementById(sectionId).classList.add('active-section');
+        }
+
+        // NEW: LIVE WEB SEARCH FUNCTION
+        function executeWebSearch() {
+            var query = document.getElementById('search-query-input').value;
+            if (query.trim() !== "") {
+                // Opens a new tab searching Google for whatever you type into the LJN panel!
+                window.open('https://google.com' + encodeURIComponent(query), '_blank');
+            } else {
+                alert('Please enter a search query first, Commander!');
+            }
         }
     </script>
 </head>
 <body>
 
-    <!-- CLICKABLE LIVE NAVBAR -->
     <div class="navbar">
         <span onclick="showSection('search-page')">🔍 LJN SEARCH</span> | 
         <span onclick="showSection('shop-page')">🛒 LJN SHOPPING</span> | 
@@ -102,16 +110,16 @@
             </div>
         </div>
 
-        <!-- SECTION 1: SEARCH PAGE (DEFAULT ACTIVE) -->
+        <!-- SECTION 1: SEARCH PAGE (WITH ACTIVE WEB SEARCH CONNECTED) -->
         <div id="search-page" class="page-section active-section">
             <div class="panel" style="border-color: #00d2ff; text-align: center;">
                 <h2 style="color: #00d2ff;">🔍 INTERNET SEARCH NETWORK</h2>
-                <input type="text" placeholder="Type data query here..." style="padding: 10px; width: 70%; border-radius: 6px; border: 1px solid #00d2ff; background: #0a1122; color: white; font-family: monospace;">
-                <button class="btn" style="margin-left: 10px;" onclick="alert('Searching LJN servers...')">GO</button>
+                <input id="search-query-input" type="text" placeholder="Type your web query here..." style="padding: 10px; width: 70%; border-radius: 6px; border: 1px solid #00d2ff; background: #0a1122; color: white; font-family: monospace;">
+                <button class="btn" style="margin-left: 10px;" onclick="executeWebSearch()">GO</button>
             </div>
         </div>
 
-        <!-- SECTION 2: SHOPPING CATALOGUE -->
+        <!-- SECTION 2: SHOPPING CATALOGUE (100% PRESERVED AND UNSAVED) -->
         <div id="shop-page" class="page-section">
             <h2 style="color: #ffaa00;">📦 HARDWARE SYSTEMS CATALOGUE</h2>
             
