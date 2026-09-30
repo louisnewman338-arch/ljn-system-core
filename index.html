@@ -57,15 +57,33 @@
             border-radius: 6px;
             cursor: pointer;
         }
+        /* SECTION DISPLAY CONTROL */
+        .page-section {
+            display: none;
+        }
+        .active-section {
+            display: block;
+        }
     </style>
+    <script>
+        function showSection(sectionId) {
+            // Hide all screen sections
+            var sections = document.getElementsByClassName('page-section');
+            for (var i = 0; i < sections.length; i++) {
+                sections[i].classList.remove('active-section');
+            }
+            // Show the specific clicked section node
+            document.getElementById(sectionId).classList.add('active-section');
+        }
+    </script>
 </head>
 <body>
 
-    <!-- CLEANED NAVBAR LINKS (NINTENDO REMOVED) -->
+    <!-- CLICKABLE LIVE NAVBAR -->
     <div class="navbar">
-        <span onclick="alert('🔍 Opening LJN Search Core Matrix...')">🔍 LJN SEARCH</span> | 
-        <span onclick="alert('🛒 Loading LJN Shopping Hub Catalogue...')">🛒 LJN SHOPPING</span> | 
-        <span onclick="alert('📺 Connecting to LJN Live Stream Feed...')">📺 LJN STREAM</span>
+        <span onclick="showSection('search-page')">🔍 LJN SEARCH</span> | 
+        <span onclick="showSection('shop-page')">🛒 LJN SHOPPING</span> | 
+        <span onclick="showSection('stream-page')">📺 LJN STREAM</span>
     </div>
 
     <div class="container">
@@ -84,44 +102,66 @@
             </div>
         </div>
 
-        <!-- HARDWARE PRODUCT CATALOG -->
-        <h2 style="color: #ffaa00;">📦 HARDWARE SYSTEMS CATALOGUE</h2>
-        
-        <div class="card">
-            <h3 style="color: #ffaa00; margin-top: 0;">🎮 JNBox Gaming Console</h3>
-            <p style="color: #8a99ad;">Dual-Boot System Frame. Powered by LJN Network Core.</p>
-            <button class="btn" style="background: #ffaa00;" onclick="alert('⚡ JNBox added to basket!')">[ ADD TO BASKET ]</button>
+        <!-- SECTION 1: SEARCH PAGE (DEFAULT ACTIVE) -->
+        <div id="search-page" class="page-section active-section">
+            <div class="panel" style="border-color: #00d2ff; text-align: center;">
+                <h2 style="color: #00d2ff;">🔍 INTERNET SEARCH NETWORK</h2>
+                <input type="text" placeholder="Type data query here..." style="padding: 10px; width: 70%; border-radius: 6px; border: 1px solid #00d2ff; background: #0a1122; color: white; font-family: monospace;">
+                <button class="btn" style="margin-left: 10px;" onclick="alert('Searching LJN servers...')">GO</button>
+            </div>
         </div>
 
-        <div class="card">
-            <h3 style="color: #00d2ff; margin-top: 0;">📱 JNPhone</h3>
-            <p style="color: #8a99ad;">The core compact mobile device running the speedy LJN OS framework.</p>
-            <button class="btn" style="background: #00d2ff;" onclick="alert('⚡ JNPhone added to basket!')">[ ADD TO BASKET ]</button>
+        <!-- SECTION 2: SHOPPING CATALOGUE -->
+        <div id="shop-page" class="page-section">
+            <h2 style="color: #ffaa00;">📦 HARDWARE SYSTEMS CATALOGUE</h2>
+            
+            <div class="card">
+                <h3 style="color: #ffaa00; margin-top: 0;">🎮 JNBox Gaming Console</h3>
+                <p style="color: #8a99ad;">Dual-Boot System Frame. Powered by LJN Network Core.</p>
+                <button class="btn" style="background: #ffaa00;" onclick="alert('⚡ JNBox added to basket!')">[ ADD TO BASKET ]</button>
+            </div>
+
+            <div class="card">
+                <h3 style="color: #00d2ff; margin-top: 0;">📱 JNPhone</h3>
+                <p style="color: #8a99ad;">The core compact mobile device running the speedy LJN OS framework.</p>
+                <button class="btn" style="background: #00d2ff;" onclick="alert('⚡ JNPhone added to basket!')">[ ADD TO BASKET ]</button>
+            </div>
+
+            <div class="card">
+                <h3 style="color: #00d2ff; margin-top: 0;">📱 JNPhone Max</h3>
+                <p style="color: #8a99ad;">Futuristic mobile device with a massive display and integrated matrix cellular antenna array.</p>
+                <button class="btn" style="background: #00d2ff;" onclick="alert('⚡ JNPhone Max added to basket!')">[ ADD TO BASKET ]</button>
+            </div>
+
+            <div class="card">
+                <h3 style="color: #00ffcc; margin-top: 0;">📟 JNPad</h3>
+                <p style="color: #8a99ad;">The sleek, lightweight portable tablet for tracking data on the move.</p>
+                <button class="btn" style="background: #00ffcc; color: black;" onclick="alert('⚡ JNPad added to basket!')">[ ADD TO BASKET ]</button>
+            </div>
+
+            <div class="card">
+                <h3 style="color: #00ffcc; margin-top: 0;">📟 JNPad Pro</h3>
+                <p style="color: #8a99ad;">Ultra-thin high-definition workstation tablet running the heavy LJN developer suite.</p>
+                <button class="btn" style="background: #00ffcc; color: black;" onclick="alert('⚡ JNPad Pro added to basket!')">[ ADD TO BASKET ]</button>
+            </div>
+
+            <div class="card">
+                <h3 style="color: #ffaa00; margin-top: 0;">🔌 LJN MagLink Core</h3>
+                <p style="color: #8a99ad;">Premium double-braided nylon charging cord with snap magnetic alignment tip.</p>
+                <button class="btn" style="background: #ffaa00;" onclick="alert('⚡ MagLink Core added to basket!')">[ ADD TO BASKET ]</button>
+            </div>
         </div>
 
-        <div class="card">
-            <h3 style="color: #00d2ff; margin-top: 0;">📱 JNPhone Max</h3>
-            <p style="color: #8a99ad;">Futuristic mobile device with a massive display and integrated matrix cellular antenna array.</p>
-            <button class="btn" style="background: #00d2ff;" onclick="alert('⚡ JNPhone Max added to basket!')">[ ADD TO BASKET ]</button>
+        <!-- SECTION 3: STREAM FEED -->
+        <div id="stream-page" class="page-section">
+            <div class="panel" style="border-color: #ff3333; text-align: center;">
+                <h2 style="color: #ff3333;">📺 LJN LIVE MEDIA FEED</h2>
+                <div style="background: #0a1122; border: 1px dashed #ff3333; padding: 40px; border-radius: 8px; color: #8a99ad;">
+                    [ NO LIVE DATA STRINGS CONNECTED ]
+                </div>
+            </div>
         </div>
 
-        <div class="card">
-            <h3 style="color: #00ffcc; margin-top: 0;">📟 JNPad</h3>
-            <p style="color: #8a99ad;">The sleek, lightweight portable tablet for tracking data on the move.</p>
-            <button class="btn" style="background: #00ffcc; color: black;" onclick="alert('⚡ JNPad added to basket!')">[ ADD TO BASKET ]</button>
-        </div>
-
-        <div class="card">
-            <h3 style="color: #00ffcc; margin-top: 0;">📟 JNPad Pro</h3>
-            <p style="color: #8a99ad;">Ultra-thin high-definition workstation tablet running the heavy LJN developer suite.</p>
-            <button class="btn" style="background: #00ffcc; color: black;" onclick="alert('⚡ JNPad Pro added to basket!')">[ ADD TO BASKET ]</button>
-        </div>
-
-        <div class="card">
-            <h3 style="color: #ffaa00; margin-top: 0;">🔌 LJN MagLink Core</h3>
-            <p style="color: #8a99ad;">Premium double-braided nylon charging cord with snap magnetic alignment tip.</p>
-            <button class="btn" style="background: #ffaa00;" onclick="alert('⚡ MagLink Core added to basket!')">[ ADD TO BASKET ]</button>
-        </div>
     </div>
 
 </body>
