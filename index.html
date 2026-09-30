@@ -74,7 +74,7 @@
             document.getElementById(sectionId).classList.add('active-section');
         }
 
-        // FIXED JAVASCRIPT RUNNING PERFECTLY INSIDE THE MAIN INTERFACE //
+        // CORRECT JAVASCRIPT TARGET MODULE
         function executeWebSearch() {
             var query = document.getElementById('search-query-input').value;
             if (query.trim() !== "") {
@@ -109,11 +109,12 @@
             </div>
         </div>
 
-        <!-- SECTION 1: SEARCH PAGE -->
+        <!-- SECTION 1: SEARCH PAGE (FIXED HTML BUTTON NODE CONNECTED) -->
         <div id="search-page" class="page-section active-section">
             <div class="panel" style="border-color: #00d2ff; text-align: center;">
                 <h2 style="color: #00d2ff;">🔍 INTERNET SEARCH NETWORK</h2>
                 <input id="search-query-input" type="text" placeholder="Type your web query here..." style="padding: 10px; width: 70%; border-radius: 6px; border: 1px solid #00d2ff; background: #0a1122; color: white; font-family: monospace;">
+                <!-- FIXED HTML ELEMENT: Maps perfectly to the search script -->
                 <button class="btn" style="margin-left: 10px;" onclick="executeWebSearch()">GO</button>
             </div>
         </div>
