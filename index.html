@@ -22,6 +22,10 @@
             color: #00d2ff;
             font-weight: bold;
             margin: 0 15px;
+            cursor: pointer;
+        }
+        .navbar span:hover {
+            text-shadow: 0 0 8px #00d2ff;
         }
         .container {
             max-width: 800px;
@@ -57,11 +61,11 @@
 </head>
 <body>
 
+    <!-- CLEANED NAVBAR LINKS (NINTENDO REMOVED) -->
     <div class="navbar">
-        <span>🔍 LJN SEARCH</span> | 
-        <span>🛒 LJN SHOPPING</span> | 
-        <span>📺 LJN STREAM</span> |
-        <span style="color: #ff3333;">🔴 NINTENDO SYNC</span>
+        <span onclick="alert('🔍 Opening LJN Search Core Matrix...')">🔍 LJN SEARCH</span> | 
+        <span onclick="alert('🛒 Loading LJN Shopping Hub Catalogue...')">🛒 LJN SHOPPING</span> | 
+        <span onclick="alert('📺 Connecting to LJN Live Stream Feed...')">📺 LJN STREAM</span>
     </div>
 
     <div class="container">
@@ -72,11 +76,11 @@
         <div class="panel" style="display: flex; justify-content: space-between; align-items: center;">
             <div>
                 <h3 style="color: #00ffcc; margin: 0 0 5px 0;">💳 MONZO CORPORATE DOCK</h3>
-                <p style="margin: 0; color: #8a99ad;">Active Developer Balance: <b style="color: #ff5533;">£35.00</b></p>
+                <p style="margin: 0; color: #ff5533; font-weight: bold;">Active Developer Balance: £35.00</p>
             </div>
             <div style="text-align: right; border-left: 1px solid rgba(0,255,204,0.2); padding-left: 20px;">
-                <h4 style="color: #00d2ff; margin: 0 0 5px 0;">📡 MATRIX NODE</h4>
-                <p style="margin: 0; color: #00ffcc; font-size: 12px;">● NETWORK ONLINE</p>
+                <h4 style="color: #00d2ff; margin: 0 0 5px 0;">📡 PHYSIC COUSCOUS</h4>
+                <p style="margin: 0; color: #00ffcc; font-size: 12px;">● STATION ONLINE</p>
             </div>
         </div>
 
@@ -87,6 +91,30 @@
             <h3 style="color: #ffaa00; margin-top: 0;">🎮 JNBox Gaming Console</h3>
             <p style="color: #8a99ad;">Dual-Boot System Frame. Powered by LJN Network Core.</p>
             <button class="btn" style="background: #ffaa00;" onclick="alert('⚡ JNBox added to basket!')">[ ADD TO BASKET ]</button>
+        </div>
+
+        <div class="card">
+            <h3 style="color: #00d2ff; margin-top: 0;">📱 JNPhone</h3>
+            <p style="color: #8a99ad;">The core compact mobile device running the speedy LJN OS framework.</p>
+            <button class="btn" style="background: #00d2ff;" onclick="alert('⚡ JNPhone added to basket!')">[ ADD TO BASKET ]</button>
+        </div>
+
+        <div class="card">
+            <h3 style="color: #00d2ff; margin-top: 0;">📱 JNPhone Max</h3>
+            <p style="color: #8a99ad;">Futuristic mobile device with a massive display and integrated matrix cellular antenna array.</p>
+            <button class="btn" style="background: #00d2ff;" onclick="alert('⚡ JNPhone Max added to basket!')">[ ADD TO BASKET ]</button>
+        </div>
+
+        <div class="card">
+            <h3 style="color: #00ffcc; margin-top: 0;">📟 JNPad</h3>
+            <p style="color: #8a99ad;">The sleek, lightweight portable tablet for tracking data on the move.</p>
+            <button class="btn" style="background: #00ffcc; color: black;" onclick="alert('⚡ JNPad added to basket!')">[ ADD TO BASKET ]</button>
+        </div>
+
+        <div class="card">
+            <h3 style="color: #00ffcc; margin-top: 0;">📟 JNPad Pro</h3>
+            <p style="color: #8a99ad;">Ultra-thin high-definition workstation tablet running the heavy LJN developer suite.</p>
+            <button class="btn" style="background: #00ffcc; color: black;" onclick="alert('⚡ JNPad Pro added to basket!')">[ ADD TO BASKET ]</button>
         </div>
 
         <div class="card">
