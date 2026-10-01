@@ -57,12 +57,20 @@
             border-radius: 6px;
             cursor: pointer;
         }
-        /* SECTION DISPLAY CONTROL */
         .page-section {
             display: none;
         }
         .active-section {
             display: block;
+        }
+        .search-result-box {
+            background: #0a1122;
+            border: 2px solid #00d2ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: left;
+            display: none;
         }
     </style>
     <script>
@@ -74,13 +82,31 @@
             document.getElementById(sectionId).classList.add('active-section');
         }
 
-        // CORRECT JAVASCRIPT TARGET MODULE
-        function executeWebSearch() {
-            var query = document.getElementById('search-query-input').value;
-            if (query.trim() !== "") {
-                window.open('https://google.com' + encodeURIComponent(query), '_blank');
+        // LJN INTERNAL DATA SEARCH ENGINE
+        function executeLjnSearch() {
+            var query = document.getElementById('search-query-input').value.toLowerCase().trim();
+            var resultBox = document.getElementById('ljn-search-results');
+            var resultText = document.getElementById('search-results-content');
+            
+            resultBox.style.display = "block";
+            
+            if (query === "hello" || query === "ljn") {
+                resultText.innerHTML = `
+                    <h3 style="color: #00ffcc; margin-top: 0; font-size: 18px;">🌐 LJN SYSTEM OVERVIEW & DIRECTORY</h3>
+                    <p style="color: #8a99ad;">Welcome to the core LJN Technology database network, Commander Newman.</p>
+                    <hr style="border-color: rgba(0, 210, 255, 0.2); margin: 15px 0;">
+                    <p>🔗 <b style="color: #00d2ff;">ljn-mainframe-hub.vercel.app</b> - Active Public Mainframe (Online)</p>
+                    <p>🔗 <b style="color: #00d2ff;">upgraded-cod.vercel.app</b> - Legacy Development Node (Standby)</p>
+                    <p>🔗 <b style="color: #00d2ff;">://github.com</b> - Cloud Repository Vault</p>
+                    <p style="color: #ffaa00; margin-top: 15px; font-weight: bold;">// All internal system data matrices operating at 100% capacity. //</p>
+                `;
+            } else if (query === "") {
+                resultText.innerHTML = `<p style="color: #ff3333;">⚠️ Please enter a data string query into the mainframe scanner, Louis.</p>`;
             } else {
-                alert('Please enter a search query first, Commander!');
+                resultText.innerHTML = `
+                    <p style="color: #ffaa00;">🔍 Scanning internal storage sectors for: "${query}"...</p>
+                    <p style="color: #ff3333;">❌ No custom data matches found. Type 'hello' to load the full corporate overview map!</p>
+                `;
             }
         }
     </script>
@@ -109,13 +135,17 @@
             </div>
         </div>
 
-        <!-- SECTION 1: SEARCH PAGE (FIXED HTML BUTTON NODE CONNECTED) -->
+        <!-- SECTION 1: CUSTOM SEARCH ENGINE -->
         <div id="search-page" class="page-section active-section">
             <div class="panel" style="border-color: #00d2ff; text-align: center;">
-                <h2 style="color: #00d2ff;">🔍 INTERNET SEARCH NETWORK</h2>
-                <input id="search-query-input" type="text" placeholder="Type your web query here..." style="padding: 10px; width: 70%; border-radius: 6px; border: 1px solid #00d2ff; background: #0a1122; color: white; font-family: monospace;">
-                <!-- FIXED HTML ELEMENT: Maps perfectly to the search script -->
-                <button class="btn" style="margin-left: 10px;" onclick="executeWebSearch()">GO</button>
+                <h2 style="color: #00d2ff; margin-top: 0;">🔍 INTERNAL LJN SEARCH MATRIX</h2>
+                <input id="search-query-input" type="text" placeholder="Type 'hello' to query the LJN servers..." style="padding: 12px; width: 65%; border-radius: 6px; border: 1px solid #00d2ff; background: #0a1122; color: white; font-family: monospace; font-size: 14px;">
+                <button class="btn" style="margin-left: 10px; padding: 12px 24px;" onclick="executeLjnSearch()">GO</button>
+                
+                <!-- DYNAMIC RESULTS VIEW BOX -->
+                <div id="ljn-search-results" class="search-result-box">
+                    <div id="search-results-content"></div>
+                </div>
             </div>
         </div>
 
